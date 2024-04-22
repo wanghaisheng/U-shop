@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="grid grid-cols-2 gap10">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
             <div class="p-7"> 
                 <img :src="product.image" alt="product image" class="mx-auto my-7">
             </div>
