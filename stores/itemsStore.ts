@@ -7,7 +7,12 @@ const useItemsStore = defineStore('itemsStore', {
             {id: 101, title: "shirt", price: 30, count: 2}
         ],
         user: 'Name'
-    })
+    }),
+    getters: {
+        all(){
+            return this.items
+        }
+    }
 } )
 
 

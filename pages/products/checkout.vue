@@ -5,7 +5,7 @@
     </Head>
     <form>
         <h1>Checkout</h1>
-        <div v-for="item in itemsStore.items">
+        <div v-for="item in itemsStore.all">
             <p>{{ item.title }}</p>
         </div>
     </form>
