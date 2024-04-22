@@ -3,7 +3,7 @@
       <header class="shadow-sm bg-white">
         <nav class="container mx-auto p-4 flex justify-between">
           <NuxtLink to="/products" class="font-bold">U Shop</NuxtLink>
-          <NuxtLink to="/products" class="font-bold"><i class="material-icons mr-2">shopping_cart</i></NuxtLink>
+          <NuxtLink to="/products/checkout" class="font-bold"><i class="material-icons mr-2">shopping_cart</i></NuxtLink>
         </nav>
       </header>
       <div class="container mx-auto p-4">
