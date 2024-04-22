@@ -10,7 +10,11 @@
         <div class="bg-[#3f3f3f] lg:h-screen lg:sticky lg:top-0">
           <div class="relative h-full">
             <div class="p-8 lg:overflow-auto lg:h-[calc(100vh-60px)]">
-              <h2 class="text-2xl font-bold text-white">Order Summary</h2>
+              
+              <div class="flex">
+                <h2 class="text-2xl font-bold text-white mr-auto">Order Summary</h2>
+                <button class="btn" @click="reset">Reset Cart</button>
+              </div>
               <div class="space-y-6 mt-10">
                 <div class="grid sm:grid-cols-2 items-start gap-6" v-for="item in itemsStore.all" :key="item.id">
                   <div class="px-4 py-6 shrink-0 bg-gray-50 rounded-md">
@@ -61,7 +65,7 @@
                   </svg>
                 </div>
                 <div class="relative flex items-center">
-                  <input type="email" placeholder="Email"
+                  <input type="email" placeholder="Email@Email.com"
                     class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
                   <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4"
                     viewBox="0 0 682.667 682.667">
@@ -81,7 +85,7 @@
                   </svg>
                 </div>
                 <div class="relative flex items-center">
-                  <input type="number" placeholder="Phone No."
+                  <input type="tel" placeholder="123-455-6789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                     class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
                   <svg fill="#bbb" class="w-[18px] h-[18px] absolute right-4" viewBox="0 0 64 64">
                     <path
@@ -118,12 +122,15 @@
 
 <script setup>
 import useItemsStore from '~/stores/itemsStore.js';
-
+const router = useRouter()
 const itemsStore = useItemsStore()
-const mode = ref('hi')
+
 definePageMeta({
     layout: "products",
   })
+const reset = async () => {
+    itemsStore.reset
+}
 </script>
 
 <style scoped>

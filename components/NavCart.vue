@@ -62,7 +62,7 @@
                       </div>
                       <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div class="mt-6">
-                        <NuxtLink href="/products/checkout" @click="open = false" class="flex items-center justify-center rounded-md border border-transparent btn px-6 py-3 text-base font-medium shadow-sm">Checkout</NuxtLink>
+                        <NuxtLink to="/products/checkout" @click="open = false" class="flex items-center justify-center rounded-md border border-transparent btn px-6 py-3 text-base font-medium shadow-sm">Checkout</NuxtLink>
                       </div>
                       <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>

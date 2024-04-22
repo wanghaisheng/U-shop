@@ -5,7 +5,6 @@ const useItemsStore = defineStore('itemsStore', {
         items: [
             
         ],
-        user: 'Name',
         total:0
     }),
     getters: {
@@ -55,6 +54,10 @@ const useItemsStore = defineStore('itemsStore', {
             })
             console.log('removed', idToDelete)
             this.itemsPrice
+        },
+        reset(){
+         this.items = []
+         this.itemsPrice
         }
     }
 } )
