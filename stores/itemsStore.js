@@ -45,6 +45,7 @@ const useItemsStore = defineStore('itemsStore', {
                 return t.id !== idToDelete
             })
             console.log('removed', idToDelete)
+            this.itemsPrice
         }
     }
 } )

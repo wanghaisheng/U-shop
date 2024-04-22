@@ -58,7 +58,7 @@
                     <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
                       <div class="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>{{itemsStore.total}}</p>
+                        <p>${{itemsStore.total}}</p>
                       </div>
                       <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div class="mt-6">
@@ -66,7 +66,7 @@
                       </div>
                       <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
-                          or{{ ' ' }}
+                          or
                           <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" @click="open = false">
                             Continue Shopping
                             <span aria-hidden="true"> &rarr;</span>
