@@ -3,8 +3,8 @@
     <Head>
       <Title>U Shop | Checkout </Title>
     </Head>
-    <form>
-        <h1>Checkout</h1>
+    <form class="flex flex-col">
+        <h1 class="text-7xl mx-auto my-10">Checkout</h1>
         <div class="font-[sans-serif] bg-gray-50">
       <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-4 h-full">
         <div class="bg-[#3f3f3f] lg:h-screen lg:sticky lg:top-0">
@@ -122,7 +122,6 @@
 
 <script setup>
 import useItemsStore from '~/stores/itemsStore.js';
-const router = useRouter()
 const itemsStore = useItemsStore()
 
 definePageMeta({
