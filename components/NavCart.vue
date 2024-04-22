@@ -1,10 +1,11 @@
 <template>
+    <div>
+        <i class="material-icons mr-2" @click="showSide">shopping_cart</i>
     <TransitionRoot as="template" :show="open">
       <Dialog as="div" class="relative z-10" @close="open = false">
         <TransitionChild as="template" enter="ease-in-out duration-500" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in-out duration-500" leave-from="opacity-100" leave-to="opacity-0">
           <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
         </TransitionChild>
-  
         <div class="fixed inset-0 overflow-hidden">
           <div class="absolute inset-0 overflow-hidden">
             <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
@@ -82,10 +83,10 @@
         </div>
       </Dialog>
     </TransitionRoot>
+</div>
   </template>
   
   <script setup>
-  import { ref } from 'vue'
   import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
   import { XMarkIcon } from '@heroicons/vue/24/outline'
   
@@ -113,6 +114,13 @@
     },
     // More products...
   ]
-  
-  const open = ref(true)
+  const open = ref(false)
+  const showSide = () => {
+    open.value = true
+  }
   </script>
+  <style scoped>
+i:hover{
+    cursor: pointer;
+}
+</style>
