@@ -9,8 +9,11 @@ const useItemsStore = defineStore('itemsStore', {
         user: 'Name'
     }),
     getters: {
-        all(){
+        all():any{
             return this.items
+        },
+        itemsLength(): number {
+            return this.items.length
         }
     }
 } )
