@@ -2,7 +2,7 @@
     <div>
       <header class="shadow-sm bg-white">
         <nav class="container mx-auto p-4">
-          <NuxtLink to="/products" class="font-bold">Nuxt Dojo Merch</NuxtLink>
+          <NuxtLink to="/products" class="font-bold">U Shop</NuxtLink>
         </nav>
       </header>
       <div class="container mx-auto p-4">
@@ -20,6 +20,6 @@
   
   <style scoped>
     .router-link-exact-active {
-      color: #12b488;
+      color: #9BC1BC;
     }
   </style>
