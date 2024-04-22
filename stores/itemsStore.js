@@ -42,7 +42,16 @@ const useItemsStore = defineStore('itemsStore', {
                 //      const task = this.tasks.find(t => t.id === id)
                 //task.isFav = !task.isFav
            this.items = this.items.filter(t=>{
-                return t.id !== idToDelete
+                if( t.id !== idToDelete){
+                    return true
+                } else {
+                    if( t.count>1 ){
+                        t.count-=1
+                        return true
+                    } else {
+                        return false
+                    }
+                }
             })
             console.log('removed', idToDelete)
             this.itemsPrice
