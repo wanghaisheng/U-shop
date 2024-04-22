@@ -45,7 +45,7 @@
                                   <p class="text-gray-500">Quantity: {{ item.count }}</p>
   
                                   <div class="flex">
-                                    <button type="button" class="font-medium btn" @click="itemsStore.delete(item.id)">Remove</button>
+                                    <button type="button" class="font-medium btn" @click="itemsStore.delete(item.id)">Remove One</button>
                                   </div>
                                 </div>
                               </div>
