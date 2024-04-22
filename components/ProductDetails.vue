@@ -11,7 +11,7 @@
         <p class="mb-7">{{ product.description }}</p>
         <button class="btn flex" @click="addToCart">
             <i class="material-icons mr-2">add_shopping_cart</i>
-            <span>Add to cart</span>
+            <span>{{ btnText }}</span>
         </button>
             </div>
         </div>
@@ -19,9 +19,22 @@
 </template>
 
 <script setup>
+  import useItemsStore from '~/stores/itemsStore';
+const itemsStore = useItemsStore()
 const { product } = defineProps(["product"])
+const btnText = ref('Add to Cart')
 const addToCart = () => {
-    
+btnText.value = "Adding..."
+itemsStore.addItem({
+    id:product.id,
+    price:product.price,
+    count:1,
+    title:product.title
+})
+setTimeout(()=>{ btnText.value = "Added!"
+},1000)
+setTimeout(()=>{ btnText.value = "Add another"
+},2000)
 }
 </script>
 

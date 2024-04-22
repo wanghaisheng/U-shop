@@ -15,6 +15,15 @@ const useItemsStore = defineStore('itemsStore', {
         itemsLength(): number {
             return this.items.length
         }
+    },
+    actions: {
+        addItem(item){
+            if(false){ //logic to check if this is already in the cart
+                //logic to add one to the count
+            } else {
+            this.items.push(item)
+            }
+        }
     }
 } )
 
