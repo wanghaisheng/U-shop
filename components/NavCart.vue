@@ -42,7 +42,7 @@
                                   </div>
                                 </div>
                                 <div class="flex flex-1 items-end justify-between text-sm">
-                                  <p class="text-gray-500">Qty {{ item.count }}</p>
+                                  <p class="text-gray-500">Quantity: {{ item.count }}</p>
   
                                   <div class="flex">
                                     <button type="button" class="font-medium btn" @click="itemsStore.delete(item.id)">Remove</button>
@@ -58,7 +58,7 @@
                     <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
                       <div class="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>$262.00</p>
+                        <p>{{itemsStore.total}}</p>
                       </div>
                       <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div class="mt-6">
@@ -88,7 +88,7 @@
   <script setup>
   import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
   import { XMarkIcon } from '@heroicons/vue/24/outline'
-  import useItemsStore from '~/stores/itemsStore';
+  import useItemsStore from '~/stores/itemsStore.js';
     const products = [
     {
       id: 1,

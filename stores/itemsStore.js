@@ -3,16 +3,24 @@ import { defineStore } from "pinia"
 const useItemsStore = defineStore('itemsStore', {
     state : () => ({
         items: [
-
+            
         ],
-        user: 'Name'
+        user: 'Name',
+        total:0
     }),
     getters: {
-        all():any{
+        all(){
             return this.items
         },
-        itemsLength(): number {
+        itemsLength() {
             return this.items.length
+        },
+        itemsPrice(){
+            let num=0
+            this.items.forEach(item=>{
+                num += item.count*item.price
+            })
+            this.total = num
         }
     },
     actions: {
@@ -25,6 +33,7 @@ const useItemsStore = defineStore('itemsStore', {
                 this.items.push(item)
                 console.log('here2')
             }
+            this.itemsPrice
         },
         delete(idToDelete){
             //enter some logic here to remove or drop count to zero

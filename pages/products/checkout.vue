@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import useItemsStore from '~/stores/itemsStore';
+import useItemsStore from '~/stores/itemsStore.js';
 
 const itemsStore = useItemsStore()
 const mode = ref('hi')
