@@ -17,10 +17,13 @@ const useItemsStore = defineStore('itemsStore', {
     },
     actions: {
         addItem(item){
-            if(false){ //logic to check if this is already in the cart
-                //logic to add one to the count
+            const check = this.items.find(t => t.id === item.id)
+            if(check){ //logic to check if this is already in the cart
+                check.count+=1
+                console.log('here1')
             } else {
-            this.items.push(item)
+                this.items.push(item)
+                console.log('here2')
             }
         },
         delete(idToDelete){
