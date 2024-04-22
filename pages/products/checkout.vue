@@ -6,13 +6,13 @@
     <form>
         <h1>Checkout</h1>
         <p>{{ mode }}</p>
+        
     </form>
     </div>
 </template>
 
 <script setup>
 const mode = ref('hi')
-
 definePageMeta({
     layout: "products",
   })

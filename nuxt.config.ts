@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss','@pinia/nuxt'],
   app : {
     head : {
       title : 'youronlinevariety',
@@ -13,7 +13,4 @@ export default defineNuxtConfig({
       ]
     }
   },
-  runtimeConfig : {
-    currencyKey : process.env.CURRENCY_API_KEY
-  }
 })
