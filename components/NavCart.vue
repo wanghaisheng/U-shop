@@ -46,7 +46,7 @@
                                   <p class="text-gray-500">Qty {{ product.quantity }}</p>
   
                                   <div class="flex">
-                                    <button type="button" class="font-medium btn">Remove</button>
+                                    <button type="button" class="font-medium btn" @click="itemsStore.delete(product.id)">Remove</button>
                                   </div>
                                 </div>
                               </div>
@@ -89,8 +89,8 @@
   <script setup>
   import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
   import { XMarkIcon } from '@heroicons/vue/24/outline'
-  
-  const products = [
+  import useItemsStore from '~/stores/itemsStore';
+    const products = [
     {
       id: 1,
       name: 'Throwback Hip Bag',
@@ -115,6 +115,7 @@
     // More products...
   ]
   const open = ref(false)
+  const itemsStore = useItemsStore()
   const showSide = () => {
     open.value = true
   }

@@ -23,6 +23,13 @@ const useItemsStore = defineStore('itemsStore', {
             } else {
             this.items.push(item)
             }
+        },
+        delete(idToDelete){
+            //enter some logic here to remove or drop count to zero
+            this.items.filter(t=>{
+                return t.id !== idToDelete
+            })
+            console.log('removed', idToDelete)
         }
     }
 } )
