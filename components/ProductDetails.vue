@@ -29,7 +29,8 @@ itemsStore.addItem({
     id:product.id,
     price:product.price,
     count:1,
-    title:product.title
+    title:product.title,
+    image:product.image
 })
 setTimeout(()=>{ btnText.value = "Added!"
 },1000)

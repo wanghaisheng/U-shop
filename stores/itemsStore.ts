@@ -3,8 +3,7 @@ import { defineStore } from "pinia"
 const useItemsStore = defineStore('itemsStore', {
     state : () => ({
         items: [
-            {id: 100, title: "pants", price: 20, count:1},
-            {id: 101, title: "shirt", price: 30, count: 2}
+
         ],
         user: 'Name'
     }),
@@ -26,6 +25,10 @@ const useItemsStore = defineStore('itemsStore', {
         },
         delete(idToDelete){
             //enter some logic here to remove or drop count to zero
+
+            //this is probably how i should filter through
+                //      const task = this.tasks.find(t => t.id === id)
+                //task.isFav = !task.isFav
             this.items.filter(t=>{
                 return t.id !== idToDelete
             })

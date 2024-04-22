@@ -27,26 +27,25 @@
                       <div class="mt-8">
                         <div class="flow-root">
                           <ul role="list" class="-my-6 divide-y divide-gray-200">
-                            <li v-for="product in products" :key="product.id" class="flex py-6">
+                            <li v-for="item in itemsStore.all" :key="item.id" class="flex py-6">
                               <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                <img :src="product.imageSrc" :alt="product.imageAlt" class="h-full w-full object-cover object-center" />
+                                <img :src="item.image" class="h-full w-full object-cover object-center" />
                               </div>
   
                               <div class="ml-4 flex flex-1 flex-col">
                                 <div>
                                   <div class="flex justify-between text-base font-medium text-gray-900">
                                     <h3>
-                                      <a :href="product.href">{{ product.name }}</a>
+                                      <p>{{ item.title }}</p>
                                     </h3>
-                                    <p class="ml-4">{{ product.price }}</p>
+                                    <p class="ml-4">${{ item.price }}</p>
                                   </div>
-                                  <p class="mt-1 text-sm text-gray-500">{{ product.color }}</p>
                                 </div>
                                 <div class="flex flex-1 items-end justify-between text-sm">
-                                  <p class="text-gray-500">Qty {{ product.quantity }}</p>
+                                  <p class="text-gray-500">Qty {{ item.count }}</p>
   
                                   <div class="flex">
-                                    <button type="button" class="font-medium btn" @click="itemsStore.delete(product.id)">Remove</button>
+                                    <button type="button" class="font-medium btn" @click="itemsStore.delete(item.id)">Remove</button>
                                   </div>
                                 </div>
                               </div>
