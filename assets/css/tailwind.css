@@ -10,6 +10,9 @@ body {
   .btn {
     @apply bg-[#9BC1BC] text-white px-3 py-2 rounded-md text-sm;
   }
+  .btn:hover{
+    @apply bg-[#9BCFBF]
+  }
   .card {
     @apply p-3 rounded-md bg-white shadow-md h-full;
   }

@@ -33,7 +33,7 @@
             
             <div class="absolute left-0 bottom-0 bg-[#444] w-full p-4">
                 <div class="text-center my-3 flex justify-center bg-white px-5">
-                <h4 class="flex bg-white flex-wrap gap-4 text-base text-white my-2 py-2 text-[#444]">You get free shipping on this order!</h4>
+                <h4 class="flex bg-white flex-wrap gap-4 text-base text-white my-2 py-2 text-black">You get free shipping on this order!</h4>
             </div>
               <h4 class="flex flex-wrap gap-4 text-base text-white">SubTotal <span class="ml-auto">${{itemsStore.total}}</span></h4>
               <h4 class="flex flex-wrap gap-4 text-base text-white">Total <span class="ml-auto">${{(itemsStore.total*1.13).toFixed(2)}}</span></h4>
@@ -106,14 +106,14 @@
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
                 <input type="text" placeholder="City"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
-                <input type="text" placeholder="State"
+                <input type="text" placeholder="Area (State/Province)"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
                 <input type="text" placeholder="Zip Code"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
               </div>
               <div class="flex gap-6 max-sm:flex-col mt-10">
                 <button type="button" @click="handleCancel" class="rounded-md px-6 py-3 w-full text-sm font-semibold bg-transparent hover:bg-gray-100 border-2 text-[#333]">Cancel</button>
-                <button type="button" class="rounded-md px-6 py-3 w-full text-sm font-semibold bg-[#333] text-white hover:bg-[#222]">Complete Purchase</button>
+                <button type="button" class="rounded-md px-6 py-3 w-full text-sm font-semibold btn">Complete Purchase</button>
               </div>
             </div>
           </form>
@@ -127,7 +127,14 @@
 <script setup>
 import useItemsStore from '~/stores/itemsStore.js';
 const itemsStore = useItemsStore()
-
+const firstName = ref('')
+const lastName = ref('')
+const email=('')
+const phoneNumber = ref('')
+const adressLine = ref('')
+const city = ref('')
+const area = ref('')
+const zipCode = ref('')
 definePageMeta({
     layout: "products",
   })
