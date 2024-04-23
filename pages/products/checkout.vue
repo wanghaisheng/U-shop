@@ -32,7 +32,7 @@
             </div>
             <div class="absolute left-0 bottom-0 bg-[#444] w-full p-4">
               <h4 class="flex flex-wrap gap-4 text-base text-white">SubTotal <span class="ml-auto">${{itemsStore.total}}</span></h4>
-              <h4 class="flex flex-wrap gap-4 text-base text-white">Total <span class="ml-auto">${{itemsStore.total*1.13}}</span></h4>
+              <h4 class="flex flex-wrap gap-4 text-base text-white">Total <span class="ml-auto">${{(itemsStore.total*1.13).toFixed(2)}}</span></h4>
             </div>
           </div>
         </div>
