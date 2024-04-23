@@ -5,16 +5,16 @@ const useItemsStore = defineStore('itemsStore', {
         user: null
     }),
     getters: {
-        user(){
+        currentUser(){
             return this.user
         }
     },
     actions: {
-        login(user){
-            //login logic
+        loginUser(user){
+            this.user = user
         },
-        logout(){
-            //logout logic
+        logoutUser(){
+            this.user = null
         }
     }
 } )
