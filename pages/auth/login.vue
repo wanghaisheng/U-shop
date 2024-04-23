@@ -7,7 +7,7 @@
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form class="space-y-6" action="#" method="POST">
+      <form @submit.prevent="handleSubmit" class="space-y-6" action="#" method="POST">
         <div>
           <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
           <div class="mt-2">
@@ -41,9 +41,16 @@
 <script setup>
 const email = ref('')
 const password = ref('')
+// const {error, login, isPending} = useLogin()
 definePageMeta({
     layout: "auth",
   })
+  const handleSubmit = async () => {
+//    const res = await login(email.value, password.value)
+//    if(!error.value){
+//     console.log('success')
+//    }
+  }
 </script>
 
 <style scoped>

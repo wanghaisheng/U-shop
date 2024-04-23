@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss','@pinia/nuxt'],
   app : {
     head : {
-      title : 'youronlinevariety',
+      title : 'U Shop',
       meta : [
         {name : 'description' , content :'Easy to use website to buy a random collection of items on the internet'}
       ],

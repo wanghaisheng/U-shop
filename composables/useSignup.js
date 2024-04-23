@@ -2,7 +2,6 @@ import { projectAuth } from '../firebase/config'
 import useUserStore from '../stores/userStore'
 const userStore = useUserStore()
 const error = ref(null)
-const id = ref(null)
 const isPending = ref(false)
 const signup = async (email, password) => {
   error.value = null
@@ -27,7 +26,7 @@ const signup = async (email, password) => {
 }
 
 const useSignup = () => {
-  return { error, signup, isPending, id }
+  return { error, signup, isPending} 
 }
 
 export default useSignup
