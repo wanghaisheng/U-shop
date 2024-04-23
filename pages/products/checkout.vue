@@ -3,7 +3,7 @@
     <Head>
       <Title>U Shop | Checkout </Title>
     </Head>
-    <form class="flex flex-col">
+    <form @submit.prevent="handleSubmit" class="flex flex-col">
         <h1 class="text-7xl mx-auto my-10">Checkout</h1>
         <div class="font-[sans-serif] bg-gray-50">
       <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-4 h-full">
@@ -42,12 +42,12 @@
         </div>
         <div class="xl:col-span-2 h-max rounded-md p-8 sticky top-0">
           <h2 class="text-2xl font-bold text-[#333]">Complete your order</h2>
-          <form class="mt-10">
+          <form @submit.prevent="handleSubmit" class="mt-10">
             <div>
               <h3 class="text-lg font-bold text-[#333] mb-6">Personal Details</h3>
               <div class="grid sm:grid-cols-2 gap-6">
                 <div class="relative flex items-center">
-                  <input type="text" placeholder="First Name"
+                  <input v-model="firstName" type="text" placeholder="First Name"
                     class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
                   <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4"
                     viewBox="0 0 24 24">
@@ -58,7 +58,7 @@
                   </svg>
                 </div>
                 <div class="relative flex items-center">
-                  <input type="text" placeholder="Last Name"
+                  <input v-model="lastName" type="text" placeholder="Last Name"
                     class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
                   <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4"
                     viewBox="0 0 24 24">
@@ -69,7 +69,7 @@
                   </svg>
                 </div>
                 <div class="relative flex items-center">
-                  <input type="email" placeholder="Email@Email.com"
+                  <input v-model="email" type="email" placeholder="Email@Email.com"
                     class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
                   <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4"
                     viewBox="0 0 682.667 682.667">
@@ -89,7 +89,7 @@
                   </svg>
                 </div>
                 <div class="relative flex items-center">
-                  <input type="tel" placeholder="123-455-6789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  <input v-model="phoneNumber" type="tel" placeholder="123-455-6789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                     class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
                   <svg fill="#bbb" class="w-[18px] h-[18px] absolute right-4" viewBox="0 0 64 64">
                     <path
@@ -102,13 +102,13 @@
             <div class="mt-6">
               <h3 class="text-lg font-bold text-[#333] mb-6">Shipping Address</h3>
               <div class="grid sm:grid-cols-2 gap-6">
-                <input type="text" placeholder="Address Line"
+                <input v-model="addressLine" type="text" placeholder="Address Line"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
-                <input type="text" placeholder="City"
+                <input v-model="city" type="text" placeholder="City"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
-                <input type="text" placeholder="Area (State/Province)"
+                <input v-model="area" type="text" placeholder="Area (State/Province)"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
-                <input type="text" placeholder="Zip Code"
+                <input v-model="zipCode" type="text" placeholder="Zip Code"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
               </div>
               <div class="flex gap-6 max-sm:flex-col mt-10">
@@ -131,7 +131,7 @@ const firstName = ref('')
 const lastName = ref('')
 const email=('')
 const phoneNumber = ref('')
-const adressLine = ref('')
+const addressLine = ref('')
 const city = ref('')
 const area = ref('')
 const zipCode = ref('')
@@ -141,8 +141,12 @@ definePageMeta({
 const reset =() => {
     itemsStore.reset
 }
-const handleCancel = async() => {
-    await navigateTo('/products')
+//all button clicks to not work on this page and getting weird error message
+const handleCancel = () => {
+    itemsStore.reset
+}
+const handleSubmit = () => {
+    console.log('Submit')
 }
 </script>
 
