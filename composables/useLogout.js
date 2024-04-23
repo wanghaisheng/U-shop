@@ -1,6 +1,7 @@
 
 import { projectAuth } from '../firebase/config'
-
+import useUserStore from '../stores/userStore'
+const userStore = useUserStore()
 const error = ref(null)
 const isPending = ref(null)
 const logout = async () => {
@@ -8,6 +9,7 @@ const logout = async () => {
     isPending.value = true
   try {
     await projectAuth.signOut()
+    userStore.logoutUser()
     isPending.value = false
   }
   catch(err) {

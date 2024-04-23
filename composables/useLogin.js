@@ -1,5 +1,6 @@
 import { projectAuth } from '../firebase/config'
-
+import useUserStore from '../stores/userStore'
+const userStore = useUserStore()
 const error = ref(null)
 const isPending = ref(false)
 const login = async (email, password) => {
@@ -7,6 +8,7 @@ const login = async (email, password) => {
 isPending.value = true
   try {
     const res = await projectAuth.signInWithEmailAndPassword(email, password)
+    useStore.loginUser(email)
     error.value = null
     isPending.value = false
     return res
