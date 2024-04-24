@@ -42,15 +42,14 @@
 definePageMeta({
     layout: "auth",
   })
-//   const { error, signup, isPending } = useSignup()
+  const { error, signup, isPending } = useSignup()
   const email = ref('')
   const password = ref('')
   const handleSubmit = async () => {
-    // const res = await signup(email.value, password.value)
-    //     if (!error.value) {
-    //         console.log('success')
-    //         //push 
-    //     }
+   await signup(email.value, password.value)
+        if (!error.value) {
+            console.log('success')
+        }
   }
 </script>
 
