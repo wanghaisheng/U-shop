@@ -3,7 +3,6 @@
       <header class="shadow-sm bg-white">
         <nav class="container mx-auto p-4 flex items-center justify-between">
           <NuxtLink to="/products" class="font-bold">U Shop</NuxtLink>
-          <p v-if="userStore.currentUser">Hey {{ userStore.currentUser }}</p>
           <div class="flex">
             <!--make these conditional-->
           <Nuxt-Link to="/auth/login" class="btn mx-3 px-5 rounded-full"> Login </Nuxt-Link>

@@ -1,7 +1,7 @@
 import { defineStore } from "pinia"
 import useGetUser from "~/composables/getUser"
 
-const useUserStore = defineStore('itemsStore', {
+const useUserStore = defineStore('userStore', {
     
     state : () => ({
         user:   this.authChange
