@@ -41,6 +41,8 @@
 </template>
 
 <script setup>
+import useUserStore from '~/stores/userStore';
+const userStore = useUserStore()
 const email = ref('')
 const password = ref('')
 const {error, login, isPending} = useLogin()
@@ -50,6 +52,7 @@ definePageMeta({
   const handleSubmit = async () => {
  await login(email.value, password.value)
    if(!error.value){
+    console.log(userStore.currentUser)
     //push
    }
    if(error.value==='Firebase: Error (auth/invalid-credential).'){

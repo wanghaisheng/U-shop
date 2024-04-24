@@ -1,11 +1,12 @@
 
 
 import { signInWithEmailAndPassword  } from 'firebase/auth'
-
+import useUserStore from '~/stores/userStore'
 const error = ref(null)
 const isPending = ref(false)
 
 const login = async (email, password) => {
+    const userStore = useUserStore()
     const {$auth} = useNuxtApp()
   error.value = null
   isPending.value = true
@@ -15,6 +16,7 @@ const login = async (email, password) => {
     if (!res) {
       throw new Error('Could not complete login')
     }
+    userStore.loginUser(email)
     error.value = null
     isPending.value = false
   }
