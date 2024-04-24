@@ -25,7 +25,9 @@
         </div>
 
         <div>
-          <button type="submit" class="flex w-full justify-center rounded-md btn px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+          <button v-if="!isPending" type="submit" class="flex w-full justify-center rounded-md btn px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
+          <button v-else disabled type="submit" class="flex w-full justify-center rounded-md btn px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Working...</button>
+            <div v-if='error' class="error">{{ error }}</div>
         </div>
       </form>
 
@@ -41,8 +43,6 @@
 <script setup>
 const email = ref('')
 const password = ref('')
-import useUserStore from '~/stores/itemsStore.js';
-const userStore = useUserStore()
 const {error, login, isPending} = useLogin()
 definePageMeta({
     layout: "auth",
@@ -50,8 +50,10 @@ definePageMeta({
   const handleSubmit = async () => {
  await login(email.value, password.value)
    if(!error.value){
-    console.log('success')
-    console.log(userStore.currentUser)
+    //push
+   }
+   if(error.value==='Firebase: Error (auth/invalid-credential).'){
+    error.value='Incorrect Credentials'
    }
   }
 </script>

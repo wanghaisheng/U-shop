@@ -3,8 +3,9 @@ import useUserStore from '~/stores/userStore'
 import { createUserWithEmailAndPassword  } from 'firebase/auth'
 const error = ref(null)
 const isPending = ref(false)
-const userStore = useUserStore()
+
 const signup = async (email, password) => {
+    const userStore = useUserStore()
     const {$auth} = useNuxtApp()
   error.value = null
   isPending.value = true

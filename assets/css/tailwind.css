@@ -16,4 +16,7 @@ body {
   .card {
     @apply p-3 rounded-md bg-white shadow-md h-full;
   }
+  .error {
+    @apply p-3 rounded-md bg-white text-red-300 shadow-md h-full text-center my-3;
+  }
 }
