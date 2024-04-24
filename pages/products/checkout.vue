@@ -126,10 +126,12 @@
 
 <script setup>
 import useItemsStore from '~/stores/itemsStore.js';
+import useUserStore from '~/stores/userStore.js';
+const userStore = useUserStore()
 const itemsStore = useItemsStore()
 const firstName = ref('')
 const lastName = ref('')
-const email=('')
+const email=(userStore.currentUser)
 const phoneNumber = ref('')
 const addressLine = ref('')
 const city = ref('')
