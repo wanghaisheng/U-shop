@@ -1,5 +1,4 @@
 import { defineStore } from "pinia"
-
 const useItemsStore = defineStore('itemsStore', {
     state : () => ({
         items: [

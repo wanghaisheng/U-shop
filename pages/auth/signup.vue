@@ -42,6 +42,10 @@
 </template>
 
 <script setup>
+
+import useUserStore from '~/stores/userStore';
+const userStore = useUserStore()
+console.log(userStore.currentUser)
 definePageMeta({
     layout: "auth",
   })
@@ -52,7 +56,7 @@ definePageMeta({
     e.preventDefault()
    await signup(email.value, password.value)
         if (!error.value) {
-            console.log('success')
+            console.log(userStore.currentUser)
         } else if (error.value === 'Firebase: Error (auth/email-already-in-use).'){
             error.value = 'Email in use...'
         } else if(error.value === 'Firebase: Password should be at least 6 characters (auth/weak-password).'){

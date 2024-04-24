@@ -1,8 +1,10 @@
 import { defineStore } from "pinia"
+import useGetUser from "~/composables/getUser"
 
 const useUserStore = defineStore('itemsStore', {
+    
     state : () => ({
-        user: null
+        user:   this.authChange
     }),
     getters: {
         currentUser(){
@@ -15,6 +17,12 @@ const useUserStore = defineStore('itemsStore', {
         },
         logoutUser(){
             this.user = null
+        },
+        authChange(){
+            const {getUser} = useGetUser()
+            const {user} = getUser()
+            console.log(user)
+            return user
         }
     }
 } )
