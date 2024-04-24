@@ -6,6 +6,7 @@ const error = ref(null)
 const isPending = ref(false)
 
 const signup = async (email, password) => {
+    const {$auth} = useNuxtApp()
   error.value = null
   isPending.value = true
 
