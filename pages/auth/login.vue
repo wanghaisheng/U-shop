@@ -41,15 +41,15 @@
 <script setup>
 const email = ref('')
 const password = ref('')
-// const {error, login, isPending} = useLogin()
+const {error, login, isPending} = useLogin()
 definePageMeta({
     layout: "auth",
   })
   const handleSubmit = async () => {
-//    const res = await login(email.value, password.value)
-//    if(!error.value){
-//     console.log('success')
-//    }
+ await login(email.value, password.value)
+   if(!error.value){
+    console.log('success')
+   }
   }
 </script>
 
