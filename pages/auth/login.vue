@@ -25,8 +25,8 @@
         </div>
 
         <div>
-          <button v-if="!isPending" type="submit" class="flex w-full justify-center rounded-md btn px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
-          <button v-else disabled type="submit" class="flex w-full justify-center rounded-md btn px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Working...</button>
+          <button v-if="!isPending" type="submit" class="flex w-full justify-center rounded-md btn px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Sign in</button>
+          <button v-else disabled type="submit" class="flex w-full justify-center rounded-md btn px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ">Working...</button>
             <div v-if='error' class="error">{{ error }}</div>
         </div>
       </form>

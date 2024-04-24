@@ -25,7 +25,10 @@
         </div>
 
         <div>
-          <button type="submit" class="flex w-full justify-center rounded-md  px-3 py-1.5 btn text-sm font-semibold leading-6 shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign up</button>
+          <button v-if="!isPending" type="submit" class="flex w-full justify-center rounded-md  px-3 py-1.5 btn text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign up</button>
+          <button v-else type="submit" class="flex w-full justify-center rounded-md  px-3 py-1.5 btn text-sm font-semibold leading-6 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" disabled>Working...</button>
+          <div v-if='error' class="error">{{ error }}</div>
+
         </div>
       </form>
 
@@ -50,6 +53,10 @@ definePageMeta({
    await signup(email.value, password.value)
         if (!error.value) {
             console.log('success')
+        } else if (error.value === 'Firebase: Error (auth/email-already-in-use).'){
+            error.value = 'Email in use...'
+        } else if(error.value === 'Firebase: Password should be at least 6 characters (auth/weak-password).'){
+            error.value = 'Choose a stronger password...'
         }
   }
 </script>
