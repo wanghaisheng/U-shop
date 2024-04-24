@@ -53,7 +53,7 @@ definePageMeta({
  await login(email.value, password.value)
    if(!error.value){
     console.log(userStore.currentUser)
-    //push
+    await navigateTo('/')
    }
    if(error.value==='Firebase: Error (auth/invalid-credential).'){
     error.value='Incorrect Credentials'
