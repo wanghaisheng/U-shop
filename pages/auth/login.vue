@@ -33,7 +33,7 @@
 
       <p class="mt-10 text-center text-sm text-gray-500">
         Don't have an account?
-        <Nuxt-Link to="/auth/signup" class="font-semibold leading-6 btn">Sign up</Nuxt-Link>
+        <Nuxt-Link to="/auth/signup" class="font-semibold mx-3 leading-6 btn">Sign up</Nuxt-Link>
       </p>
     </div>
   </div>

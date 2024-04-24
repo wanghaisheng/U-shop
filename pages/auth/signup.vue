@@ -34,7 +34,7 @@
 
       <p class="mt-10 text-center text-sm text-gray-500">
         Already have an account?
-        <Nuxt-Link to="/auth/login" class="font-semibold leading-6 btn">Sign in</Nuxt-Link>
+        <Nuxt-Link to="/auth/login" class="mx-3 font-semibold leading-6 btn">Sign in</Nuxt-Link>
       </p>
     </div>
   </div>
