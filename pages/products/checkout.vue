@@ -33,7 +33,7 @@
             
             <div class="absolute left-0 bottom-0 bg-[#444] w-full p-4">
                 <div class="text-center my-3 flex justify-center bg-white px-5">
-                <h4 class="flex bg-white flex-wrap gap-4 text-base text-white my-2 py-2 text-black">You get free shipping on this order!</h4>
+                <h4 class="flex bg-white flex-wrap gap-4 text-base text-white my-2 py-2 text-zinc-950">You get free shipping on this order!</h4>
             </div>
               <h4 class="flex flex-wrap gap-4 text-base text-white">SubTotal <span class="ml-auto">${{itemsStore.total}}</span></h4>
               <h4 class="flex flex-wrap gap-4 text-base text-white">Total <span class="ml-auto">${{(itemsStore.total*1.13).toFixed(2)}}</span></h4>
