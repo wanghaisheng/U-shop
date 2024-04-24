@@ -13,22 +13,23 @@
       <div class="container mx-auto p-4">
         <slot />
       </div>
-<footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
-    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+<footer class="fixed bottom-0 left-0 z-20 w-full p-1 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-3 md:py-5 dark:bg-gray-800 dark:border-gray-600">
+    <div class="w-full mx-auto max-w-screen-xl p-1 md:flex md:items-center md:justify-between">
+      <span class="text-sm flex text-gray-500 sm:text-center dark:text-gray-400">© 2024 <p class="hover:underline mx-1"> U Shop™</p>. All Rights Reserved.
     </span>
+    <div class="my-3 md:my-0">
+      <Nuxt-Link to="/auth/login" class="btn mx-3 px-5 rounded-full"> Login </Nuxt-Link>
+          <Nuxt-Link to="/auth/signup" class="btn mx-3 px-5 rounded-full"> Signup </Nuxt-Link>
+    </div>
     <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
-            <a href="#" class="hover:underline me-4 md:me-6">About</a>
+            <p class="hover:underline me-4 md:me-6">Privacy Policy</p>
         </li>
         <li>
-            <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+            <p class="hover:underline me-4 md:me-6">Licensing</p>
         </li>
         <li>
-            <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
-        </li>
-        <li>
-            <a href="#" class="hover:underline">Contact</a>
+            <p class="hover:underline me-4 md:me-6">Contact</p>
         </li>
     </ul>
     </div>
