@@ -1,7 +1,7 @@
 <template>
     <div>
       <header class="shadow-sm bg-white">
-        <nav class="container mx-auto p-4 flex justify-between">
+        <nav class="container mx-auto p-4 flex items-center justify-between">
           <NuxtLink to="/products" class="font-bold">U Shop</NuxtLink>
           <p v-if="userStore.currentUser">Hey {{ userStore.currentUser }}</p>
           <div class="flex">
