@@ -41,6 +41,8 @@
 <script setup>
 const email = ref('')
 const password = ref('')
+import useUserStore from '~/stores/itemsStore.js';
+const userStore = useUserStore()
 const {error, login, isPending} = useLogin()
 definePageMeta({
     layout: "auth",
@@ -49,6 +51,7 @@ definePageMeta({
  await login(email.value, password.value)
    if(!error.value){
     console.log('success')
+    console.log(userStore.currentUser)
    }
   }
 </script>

@@ -1,4 +1,5 @@
 
+
 import { signInWithEmailAndPassword  } from 'firebase/auth'
 
 const error = ref(null)
@@ -14,7 +15,6 @@ const login = async (email, password) => {
     if (!res) {
       throw new Error('Could not complete login')
     }
-    
     error.value = null
     isPending.value = false
   }

@@ -3,6 +3,7 @@
       <header class="shadow-sm bg-white">
         <nav class="container mx-auto p-4 flex justify-between">
           <NuxtLink to="/products" class="font-bold">U Shop</NuxtLink>
+          <p v-if="userStore.currentUser">Hey {{ userStore.currentUser }}</p>
           <div class="flex">
           <NavCart />
           <span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">{{ itemsStore.itemsLength }} Items</span>
@@ -25,6 +26,8 @@
   import useItemsStore from '~/stores/itemsStore.js';
   
   const itemsStore = useItemsStore()
+  import useUserStore from '~/stores/itemsStore.js';
+const userStore = useUserStore()
   </script>
   <style scoped>
     .router-link-exact-active {

@@ -10,8 +10,8 @@ const useUserStore = defineStore('itemsStore', {
         }
     },
     actions: {
-        loginUser(user){
-            this.user = user
+        loginUser(email){
+            this.user = email
         },
         logoutUser(){
             this.user = null
