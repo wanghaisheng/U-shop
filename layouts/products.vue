@@ -5,8 +5,13 @@
           <NuxtLink to="/products" class="font-bold">U Shop</NuxtLink>
           <p v-if="userStore.currentUser">Hey {{ userStore.currentUser }}</p>
           <div class="flex">
+            <!--make these conditional-->
+          <Nuxt-Link to="/auth/login" class="btn mx-3 px-5 rounded-full"> Login </Nuxt-Link>
+          <Nuxt-Link to="/auth/signup" class="btn mx-3 px-5 rounded-full"> Signup </Nuxt-Link>
+          <div class="mx-3 flex">
           <NavCart />
           <span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">{{ itemsStore.itemsLength }} Items</span>
+        </div>
         </div>
         </nav>
       </header>

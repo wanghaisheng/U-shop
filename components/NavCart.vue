@@ -1,6 +1,6 @@
 <template>
     <div>
-        <i class="material-icons mr-2" @click="showSide">shopping_cart</i>
+        <i class="material-icons mr-2 my-2" @click="showSide">shopping_cart</i>
     <TransitionRoot as="template" :show="open">
       <Dialog as="div" class="relative z-10" @close="open = false">
         <TransitionChild as="template" enter="ease-in-out duration-500" enter-from="opacity-0" enter-to="opacity-100" leave="ease-in-out duration-500" leave-from="opacity-100" leave-to="opacity-0">
