@@ -1,12 +1,12 @@
 <template>
     <div class="container justify-center text-center m-10">
-        <h1 class="text-5xl">Success!</h1>
+        <h1 v-if="products.length" class="text-5xl">Success!</h1>
         <div class="my-10 flex items-center justify-center">
       <img class="mx-5 h-10 w-auto" src="../../public/favicon.ico" alt="Your Company" />
       <h2 class="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Thank you for choosing U Shop</h2>
     </div>
         <div class="my-20">
-            <p>Your order is now being completed. Please expect delivery in approximately 5 business days.</p>
+            <p v-if="products.length">Your order is now being completed. Please expect delivery in approximately 5 business days.</p>
         </div>
         <div class="bg-white my-20">
     <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8" v-if="products.length">
@@ -33,13 +33,17 @@
       </div>
     </div>
     <div v-else class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-      <h2 class="text-2xl font-bold tracking-tight text-gray-900">You shouldn't be seeing this... how did you just make a purchase???</h2>
+      <h2 class="text-2xl font-bold tracking-tight text-gray-900">You shouldn't be seeing this... did you make a purchase???</h2>
 
       <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
 
     </div>
   </div>
   </div>
+  <div class="mx-auto max-w-2xl p-10 sm:px-6 sm:py-24 lg:max-w-7xl">
+    <div class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 text-xl">
+    <Nuxt-Link to="/">   Head Home? </Nuxt-Link>  or <Nuxt-Link to='/products/' class="font-semibold text-[#9BC1BC]"><span class="absolute inset-0" aria-hidden="true"></span>Keep shopping! <span aria-hidden="true">&rarr;</span></Nuxt-Link>
+        </div>  </div>
     </div>
 </template>
 
