@@ -121,7 +121,12 @@
                 <input required v-model="cvv" type="text" placeholder="cvc/cvv"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
               </div>
-
+              <div v-if="emptyFields.length" class="my-10">
+              <h1  class="text-center text-2xl text-red-200 my-5">Please correct/fill out the following fields before completing the request!</h1>
+              <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            <div v-for="field in emptyFields" class="error flex items-center justify-center text-center">{{ field }}</div>
+            </div>
+        </div>
               
               
               
