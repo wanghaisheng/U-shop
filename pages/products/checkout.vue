@@ -111,8 +111,20 @@
                 <input v-model="zipCode" type="text" placeholder="Zip Code"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
               </div>
-              <div id="card-element">
+
+              <h3 class="text-lg font-bold text-[#333] mb-6 mt-6">Payment Info</h3>
+              <div class="grid sm:grid-cols-2 gap-6">
+                <input v-model="addressLine" type="text" placeholder="Card Number"
+                  class="px-4 py-3.5 bg-white text-[#333] w-full col-span-2 text-sm border-b-2 focus:border-[#333] outline-none" />
+                <input v-model="city" type="text" placeholder="Expiration Date"
+                  class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
+                <input v-model="area" type="text" placeholder="CVC/CVV"
+                  class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
               </div>
+
+              
+              
+              
               <div class="flex gap-6 max-sm:flex-col mt-10">
                 <button type="button" @click="handleCancel" class="rounded-md px-6 py-3 w-full text-sm font-semibold bg-transparent hover:bg-gray-100 border-2 text-[#333]">Cancel</button>
                 <button type="button" class="rounded-md px-6 py-3 w-full text-sm font-semibold btn">Complete Purchase</button>
