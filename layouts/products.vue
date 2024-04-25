@@ -2,7 +2,7 @@
     <div>
       <header class="shadow-sm bg-white">
         <nav class="container mx-auto p-4 flex items-center justify-between">
-          <NuxtLink to="/products" class="font-bold">U Shop</NuxtLink>
+          <NuxtLink to="/products/completed" class="font-bold">U Shop</NuxtLink>
           <div v-if="userStore.currentUser" class="text-md hidden md:block">Hey, {{ userStore.currentUser }}!</div>
           <div class="flex">
             <!--make these conditional-->
