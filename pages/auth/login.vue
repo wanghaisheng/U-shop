@@ -52,7 +52,6 @@ definePageMeta({
   const handleSubmit = async () => {
  await login(email.value, password.value)
    if(!error.value){
-    console.log(userStore.currentUser)
     await navigateTo('/products/')
    }
    if(error.value==='Firebase: Error (auth/invalid-credential).'){

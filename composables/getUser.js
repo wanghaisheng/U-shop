@@ -2,7 +2,7 @@
 import { onAuthStateChanged } from 'firebase/auth'
 
 // refs
-const getUser = () => {
+const getUser = async () => {
     const {$auth} = useNuxtApp()
 const user = ref($auth.currentUser)
 

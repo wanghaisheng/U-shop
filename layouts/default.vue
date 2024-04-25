@@ -18,8 +18,8 @@
       <span class="text-sm flex text-gray-500 sm:text-center dark:text-gray-400">© 2024 <p class="hover:underline mx-1"> U Shop™</p>. All Rights Reserved.
     </span>
     <div class="my-3 md:my-0">
-      <Nuxt-Link to="/auth/login" v-if="!userStore.currentUser" class="btn mx-3 px-5 rounded-full"> Login </Nuxt-Link>
-          <Nuxt-Link to="/auth/signup" v-if='!userStore.currentUser' class="btn mx-3 px-5 rounded-full"> Signup </Nuxt-Link>
+      <Nuxt-Link to="/auth/login" v-if="!user.email" class="btn mx-3 px-5 rounded-full"> Login </Nuxt-Link>
+          <Nuxt-Link to="/auth/signup" v-if='!user.email' class="btn mx-3 px-5 rounded-full"> Signup </Nuxt-Link>
     </div>
     <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
@@ -38,8 +38,9 @@
     </div>
   </template>
   <script setup>
-  import useUserStore from '~/stores/userStore.js';
-const userStore = useUserStore()
+ import useGetUser from "~/composables/getUser"
+const {getUser} = useGetUser()
+const {user} = await getUser()
 </script>
   <style scoped>
     .router-link-exact-active {

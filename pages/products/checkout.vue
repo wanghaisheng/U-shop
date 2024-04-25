@@ -168,13 +168,14 @@
 <script setup>
 import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import useItemsStore from '~/stores/itemsStore.js';
-import useUserStore from '~/stores/userStore.js';
-const userStore = useUserStore()
+import useGetUser from "~/composables/getUser"
+const {getUser} = useGetUser()
+const {user} = await getUser()
 const itemsStore = useItemsStore()
 const open = ref(false)
 const firstName = ref('')
 const lastName = ref('')
-const email=ref(userStore.currentUser)
+const email=ref(user.email)
 const phoneNumber = ref('')
 const addressLine = ref('')
 const city = ref('')

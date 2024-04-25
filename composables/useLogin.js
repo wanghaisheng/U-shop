@@ -16,7 +16,7 @@ const login = async (email, password) => {
     if (!res) {
       throw new Error('Could not complete login')
     }
-    userStore.loginUser(email)
+    // userStore.loginUser(email)
     error.value = null
     isPending.value = false
   }
