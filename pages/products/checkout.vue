@@ -170,10 +170,7 @@ const handleSubmit = () => {
 }
 
 const handlePayment = () => {
-//reset card
-//display checkout
-//show cost 
-//display expected date
+
 }
 
 //If you're seeing this it is because I forgot to merge the real stripe setup and you will only see the template checkout form
