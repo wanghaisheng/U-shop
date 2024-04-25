@@ -114,11 +114,11 @@
 
               <h3 class="text-lg font-bold text-[#333] mb-6 mt-6">Payment Info</h3>
               <div class="grid sm:grid-cols-2 gap-6">
-                <input v-model="addressLine" type="text" placeholder="Card Number"
+                <input v-model="cardNumber" type="text" placeholder="Card Number"
                   class="px-4 py-3.5 bg-white text-[#333] w-full col-span-2 text-sm border-b-2 focus:border-[#333] outline-none" />
-                <input v-model="city" type="text" placeholder="Expiration Date"
+                <input v-model="expirationDate" type="text" placeholder="Expiration Date"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
-                <input v-model="area" type="text" placeholder="CVC/CVV"
+                <input v-model="cvv" type="text" placeholder="cvc/cvv"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
               </div>
 
@@ -127,7 +127,8 @@
               
               <div class="flex gap-6 max-sm:flex-col mt-10">
                 <button type="button" @click="handleCancel" class="rounded-md px-6 py-3 w-full text-sm font-semibold bg-transparent hover:bg-gray-100 border-2 text-[#333]">Cancel</button>
-                <button type="button" class="rounded-md px-6 py-3 w-full text-sm font-semibold btn">Complete Purchase</button>
+                <button @click="handlePayment" v-if="itemsStore.total" type="button" class="rounded-md px-6 py-3 w-full text-sm font-semibold btn">Complete Purchase</button>
+                <button v-else type="button" disabled class="rounded-md px-6 py-3 w-full text-sm font-semibold btn">Please add items!</button>
               </div>
             </div>
           </form>
@@ -151,6 +152,9 @@ const addressLine = ref('')
 const city = ref('')
 const area = ref('')
 const zipCode = ref('')
+const cardNumber = ref('')
+const expirationDate = ref('')
+const cvv = ref('')
 definePageMeta({
     layout: "products",
   })
@@ -158,11 +162,18 @@ const reset =() => {
     itemsStore.reset
 }
 //all button clicks to not work on this page and getting weird error message
-const handleCancel = () => {
-    itemsStore.reset
+const handleCancel = async () => {
+    await navigateTo('/products/')
 }
 const handleSubmit = () => {
     console.log('Submit')
+}
+
+const handlePayment = () => {
+//reset card
+//display checkout
+//show cost 
+//display expected date
 }
 
 //If you're seeing this it is because I forgot to merge the real stripe setup and you will only see the template checkout form
