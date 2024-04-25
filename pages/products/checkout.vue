@@ -117,9 +117,9 @@
                 <input required v-model="cardNumber" type="text" placeholder="Card Number"
                   class="px-4 py-3.5 bg-white text-[#333] w-full col-span-2 text-sm border-b-2 focus:border-[#333] outline-none" />
                 <input required v-model="expirationDate" type="text" placeholder="Expiration Date"
-                  class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
+                  class="px-4 py-3.5 bg-white text-[#333] w-full sm:col-span-1 col-span-2 text-sm border-b-2 focus:border-[#333] outline-none" />
                 <input required v-model="cvv" type="text" placeholder="cvc/cvv"
-                  class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
+                  class="px-4 py-3.5 bg-white text-[#333] w-full col-span-2 sm:col-span-1 text-sm border-b-2 focus:border-[#333] outline-none" />
               </div>
               
               
@@ -189,7 +189,7 @@ definePageMeta({
     layout: "products",
   })
 const reset =() => {
-    itemsStore.reset
+    itemsStore.reset()
 }
 //all button clicks to not work on this page and getting weird error message
 const handleCancel = async () => {
