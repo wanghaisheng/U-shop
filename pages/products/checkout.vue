@@ -47,7 +47,7 @@
               <h3 class="text-lg font-bold text-[#333] mb-6">Personal Details</h3>
               <div class="grid sm:grid-cols-2 gap-6">
                 <div class="relative flex items-center">
-                  <input v-model="firstName" type="text" placeholder="First Name"
+                  <input required v-model="firstName" type="text" placeholder="First Name"
                     class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
                   <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4"
                     viewBox="0 0 24 24">
@@ -58,7 +58,7 @@
                   </svg>
                 </div>
                 <div class="relative flex items-center">
-                  <input v-model="lastName" type="text" placeholder="Last Name"
+                  <input required v-model="lastName" type="text" placeholder="Last Name"
                     class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
                   <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4"
                     viewBox="0 0 24 24">
@@ -69,7 +69,7 @@
                   </svg>
                 </div>
                 <div class="relative flex items-center">
-                  <input v-model="email" type="email" placeholder="Email@Email.com"
+                  <input required v-model="email" type="email" placeholder="Email@Email.com"
                     class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
                   <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-4"
                     viewBox="0 0 682.667 682.667">
@@ -89,7 +89,7 @@
                   </svg>
                 </div>
                 <div class="relative flex items-center">
-                  <input v-model="phoneNumber" type="tel" placeholder="123-455-6789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  <input required v-model="phoneNumber" type="tel" placeholder="123-455-6789" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                     class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
                   <svg fill="#bbb" class="w-[18px] h-[18px] absolute right-4" viewBox="0 0 64 64">
                     <path
@@ -102,23 +102,23 @@
             <div class="mt-6">
               <h3 class="text-lg font-bold text-[#333] mb-6">Shipping Address</h3>
               <div class="grid sm:grid-cols-2 gap-6">
-                <input v-model="addressLine" type="text" placeholder="Address Line"
+                <input required v-model="addressLine" type="text" placeholder="Address Line"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
-                <input v-model="city" type="text" placeholder="City"
+                <input required v-model="city" type="text" placeholder="City"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
-                <input v-model="area" type="text" placeholder="Area (State/Province)"
+                <input required v-model="area" type="text" placeholder="Area (State/Province)"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
-                <input v-model="zipCode" type="text" placeholder="Zip Code"
+                <input required v-model="zipCode" type="text" placeholder="Zip Code"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
               </div>
 
               <h3 class="text-lg font-bold text-[#333] mb-6 mt-6">Payment Info</h3>
               <div class="grid sm:grid-cols-2 gap-6">
-                <input v-model="cardNumber" type="text" placeholder="Card Number"
+                <input required v-model="cardNumber" type="text" placeholder="Card Number"
                   class="px-4 py-3.5 bg-white text-[#333] w-full col-span-2 text-sm border-b-2 focus:border-[#333] outline-none" />
-                <input v-model="expirationDate" type="text" placeholder="Expiration Date"
+                <input required v-model="expirationDate" type="text" placeholder="Expiration Date"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
-                <input v-model="cvv" type="text" placeholder="cvc/cvv"
+                <input required v-model="cvv" type="text" placeholder="cvc/cvv"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
               </div>
 
@@ -155,6 +155,8 @@ const zipCode = ref('')
 const cardNumber = ref('')
 const expirationDate = ref('')
 const cvv = ref('')
+const count = ref(0)
+const emptyFields = ref([])
 definePageMeta({
     layout: "products",
   })
@@ -170,7 +172,17 @@ const handleSubmit = () => {
 }
 
 const handlePayment = () => {
-
+    emptyFields.value=[]
+    if(!lastName.value){
+        count.value+=1
+        emptyFields.value.push('Last Name')
+    }
+    console.log(count.value)
+    if(count.value===0){
+        console.log('here')
+        navigateTo('/products/completed')
+    }
+    count.value=0
 }
 
 //If you're seeing this it is because I forgot to merge the real stripe setup and you will only see the template checkout form
