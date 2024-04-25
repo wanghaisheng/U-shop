@@ -111,6 +111,8 @@
                 <input v-model="zipCode" type="text" placeholder="Zip Code"
                   class="px-4 py-3.5 bg-white text-[#333] w-full text-sm border-b-2 focus:border-[#333] outline-none" />
               </div>
+              <div id="card-element">
+              </div>
               <div class="flex gap-6 max-sm:flex-col mt-10">
                 <button type="button" @click="handleCancel" class="rounded-md px-6 py-3 w-full text-sm font-semibold bg-transparent hover:bg-gray-100 border-2 text-[#333]">Cancel</button>
                 <button type="button" class="rounded-md px-6 py-3 w-full text-sm font-semibold btn">Complete Purchase</button>
@@ -150,6 +152,85 @@ const handleCancel = () => {
 const handleSubmit = () => {
     console.log('Submit')
 }
+
+//If you're seeing this it is because I forgot to merge the real stripe setup and you will only see the template checkout form
+
+// const stripeInit = async () => {
+//     const runtimeConfig = useRuntimeConfig()
+//     stripe=Stripe(runtimeConfig.stripePk)
+//     let res = await $fetch('/api/stripe/paymentintent', {
+//         method : 'POST',
+//         body:{
+//             amount: itemsStore.total
+//         }
+//     })
+//     elements = stripe.elements();
+//     var style = {
+//         base: {
+//             fontSize: "18px",
+//         },
+//         invalid: {
+//             fontFamily: 'Arial, sans-serif',
+//             color: "#EE4B2B",
+//             iconColor: "#EE4B2B"
+//         }
+//     };
+//     card = elements.create("card", { 
+//         hidePostalCode: true, 
+//         style: style 
+//     });
+//     card.mount("#card-element");
+
+//     isProcessing.value = false
+// }
+
+// const pay = async () => {
+//     if (currentAddress.value && currentAddress.value.data == '') {
+//         showError('Please add shipping address')
+//         return 
+//     }
+//     isProcessing.value = true
+    
+//     let result = await stripe.confirmCardPayment(clientSecret, {
+//         payment_method: { card: card },
+//     })
+
+//     if (result.error) {
+//         showError(result.error.message);
+//         isProcessing.value = false
+//     } else {
+//         await createOrder(result.paymentIntent.id)
+//         userStore.cart = []
+//         userStore.checkout = []
+//         setTimeout(() => {
+//             return navigateTo('/success')
+//         }, 500)
+//     }
+// }
+
+// const createOrder = async (stripeId) => {
+//     await useFetch('/api/prisma/create-order', {
+//         method: "POST",
+//         body: {
+//             userId: user.value.id,
+//             stripeId: stripeId,
+//             name: currentAddress.value.data.name,
+//             address: currentAddress.value.data.address,
+//             zipcode: currentAddress.value.data.zipcode,
+//             city: currentAddress.value.data.city,
+//             country: currentAddress.value.data.country,
+//             products: userStore.checkout
+//         }
+//     })
+// }
+
+// const showError = (errorMsgText) => {
+//     let errorMsg = document.querySelector("#card-error");
+
+//     errorMsg.textContent = errorMsgText;
+//     setTimeout(() => { errorMsg.textContent = "" }, 4000);
+// };
+
 </script>
 
 <style scoped>
