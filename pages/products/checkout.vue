@@ -146,7 +146,7 @@ const userStore = useUserStore()
 const itemsStore = useItemsStore()
 const firstName = ref('')
 const lastName = ref('')
-const email=(userStore.currentUser)
+const email=ref(userStore.currentUser)
 const phoneNumber = ref('')
 const addressLine = ref('')
 const city = ref('')
@@ -177,7 +177,48 @@ const handlePayment = () => {
         count.value+=1
         emptyFields.value.push('Last Name')
     }
-    console.log(count.value)
+    if(!firstName.value){
+        count.value+=1
+        emptyFields.value.push('First Name')
+    }
+    if(!email.value){
+        count.value+=1
+        emptyFields.value.push('Email')
+    }
+    if(!phoneNumber.value){
+        count.value+=1
+        emptyFields.value.push('Phone Number')
+    }
+    if(!addressLine.value){
+        count.value+=1
+        emptyFields.value.push('Address Line')
+    }
+    if(!city.value){
+        count.value+=1
+        emptyFields.value.push('City')
+    }
+    if(!area.value){
+        count.value+=1
+        emptyFields.value.push('Area')
+    }
+    if(!zipCode.value){
+        count.value+=1
+        emptyFields.value.push('Zip Code')
+    }
+    if(!cardNumber.value){
+        count.value+=1
+        emptyFields.value.push('Card Number')
+    }
+    if(!expirationDate.value){
+        count.value+=1
+        emptyFields.value.push('Expiration Date')
+    }
+    if(!cvv.value){
+        count.value+=1
+        emptyFields.value.push('cvc/cvv')
+    }
+
+
     if(count.value===0){
         console.log('here')
         navigateTo('/products/completed')
